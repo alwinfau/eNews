@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/' , [FrontController::class, 'index'])->name('frontapp');
-
+Route::get('/sort-by-categories/{slug_categoryname}', [FrontController::class ,'getCategories'])->name('getCategories');
 
 Auth::routes();
 

@@ -3,6 +3,32 @@
 @section('title', 'E-Berita')
 
 @section('content')
+
+    <div class="row mb-3">
+        <div class="col">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach ($carousel as $key => $item)
+                        <div class="carousel-item active">
+                            <img src="{{ $item->image_url ? Storage::url($item->image_url) : 'https://placehold.co/600x350/png' }}"
+                                class="d-block w-100 object-fit-cover rounded-4" alt="{{ $item->title }}" height="400">
+                        </div>
+                    @endforeach
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-9">
             <div class="row">
@@ -10,8 +36,8 @@
                     <div class="col-lg-4 mb-4">
                         <a href="{{ $item->slug_title }}" class="text-decoration-none">
                             <div class="card me-2" style="width:20rem;height:25rem;">
-                                <img src="{{ Storage::url($item->image_url) ?? '' }}" class="card-img-top object-fit-cover"
-                                    alt="{{ $item->title }}" style="height: 220px;">
+                                <img src="{{ Storage::url($item->image_url) ?? 'https://placehold.co/600x350/png' }}"
+                                    class="card-img-top object-fit-cover" alt="{{ $item->title }}" style="height: 220px;">
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $item->title }}</h5>
                                     <div class="d-flex justify-content-between">
