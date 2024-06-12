@@ -34,10 +34,13 @@
             <div class="row">
                 @foreach ($berita as $item)
                     <div class="col-lg-4 mb-4">
-                        <a href="{{ $item->slug_title }}" class="text-decoration-none">
+                        <a href="{{ route('detailBerita', $item->slug_title) }}" class="text-decoration-none">
                             <div class="card me-2" style="width:20rem;height:25rem;">
                                 <img src="{{ Storage::url($item->image_url) ?? 'https://placehold.co/600x350/png' }}"
                                     class="card-img-top object-fit-cover" alt="{{ $item->title }}" style="height: 220px;">
+                                <div class="card-img-overlay">
+                                    <div class="badge bg-info">Dibaca: {{ $item->views ?? '0' }} kali</div>
+                                </div>
                                 <div class="card-body">
                                     <h5 class="card-title">{{ $item->title }}</h5>
                                     <div class="d-flex justify-content-between">

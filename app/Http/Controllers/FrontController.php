@@ -28,4 +28,16 @@ class FrontController extends Controller
             'category' => $categories,
         ]);
     }
+
+    public function detailBerita($slug_title){
+        $details = Berita::where('slug_title', $slug_title)->first();
+        $details->increment('views');
+        $categories = Categories::all();
+        $berita = Berita::latest()->paginate(20);
+        return view('front-page.detailberita', [
+            'details' => $details,
+            'category' => $categories,
+            'berita' => $berita,
+        ]);
+    }
 }
