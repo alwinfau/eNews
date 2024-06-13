@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Berita;
 use App\Models\Categories;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -34,10 +35,12 @@ class FrontController extends Controller
         $details->increment('views');
         $categories = Categories::all();
         $berita = Berita::latest()->paginate(20);
+        $komentar = Comment::where('beritaid', $details->id)->get();
         return view('front-page.detailberita', [
             'details' => $details,
             'category' => $categories,
             'berita' => $berita,
+            'komentar' => $komentar
         ]);
     }
 }

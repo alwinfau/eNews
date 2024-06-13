@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -26,6 +27,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/' , [FrontController::class, 'index'])->name('frontapp');
 Route::get('/sort-by-categories/{slug_categoryname}', [FrontController::class ,'getCategories'])->name('getCategories');
 Route::get('/details/{slug_title}', [FrontController::class ,'detailBerita'])->name('detailBerita');
+
+// this code to comment a news in apps
+Route::post('/comments', [CommentController::class,'store'])->name('comments');
 
 Auth::routes();
 
