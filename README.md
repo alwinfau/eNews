@@ -64,3 +64,17 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## How to Build/Clone Project eNews
+
+- Open yourt terminal
+- Running Git Clone this url project enews form github
+- Running Composer Install or Composer Update
+- Running cp .env.axample .env
+- Open localhost/phpadmin and create a database name **enews**
+- Config database name to file .env in yout project
+- Running php artisan key:generate
+- Running php artisan migrate
+- Running npm install & npm run dev
+- php artisan serve
+  
