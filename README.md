@@ -67,7 +67,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## How to Build/Clone Project eNews
 
-- Open yourt terminal
+- Open your terminal
 - Running Git Clone this url project enews form github
 - Running Composer Install or Composer Update
 - Running cp .env.axample .env
